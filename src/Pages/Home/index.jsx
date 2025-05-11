@@ -14,14 +14,21 @@ const cards = [
     title: 'Balance',
     value: 13580,
     description: 'Total Bank Balance',
-    icon: <FontAwesomeIcon icon={faDollarSign} className="text-green-400 " />,
+    icon: (
+      <FontAwesomeIcon
+        icon={faDollarSign}
+        className="text-xl text-green-400 "
+      />
+    ),
   },
   {
     id: 2,
     title: 'Total Expenses',
     value: 6730,
     description: 'Description for Card 1',
-    icon: <FontAwesomeIcon icon={faReceipt} className="text-indigo-400" />,
+    icon: (
+      <FontAwesomeIcon icon={faReceipt} className="text-xl text-indigo-400" />
+    ),
   },
   {
     id: 3,
@@ -31,7 +38,7 @@ const cards = [
     icon: (
       <FontAwesomeIcon
         icon={faArrowUpFromBracket}
-        className="rotate-180 text-rose-400"
+        className="text-xl rotate-180 text-rose-400"
       />
     ),
   },
@@ -43,13 +50,13 @@ const cards = [
     icon: (
       <FontAwesomeIcon
         icon={faArrowUpFromBracket}
-        className="text-orange-300"
+        className="text-xl text-orange-300"
       />
     ),
   },
 ];
 
-function Dashboard() {
+function Home() {
   return (
     <div>
       <p className="text-heading font-medium text-white/30">Good Morning, MG</p>
@@ -65,4 +72,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default Home;

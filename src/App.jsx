@@ -1,4 +1,4 @@
-import Dashboard from './Pages/HomePage';
+import Home from './Pages/Home';
 import Header from './components/Header';
 import { SidebarProvider } from './components/ui/sidebar';
 import SideBarMenu from './components/Header/SideBarMenu';
@@ -9,6 +9,7 @@ import {
 } from './store/slices/deviceSlice';
 import { useEffect } from 'react';
 import useTrackWidth from './utils/customHooks/useElementWidth';
+import { Navigate, Route, Routes } from 'react-router';
 
 function App() {
   const dispatch = useDispatch();
@@ -47,7 +48,11 @@ function App() {
           <Header />
 
           <main className="p-4 pt-2 ">
-            <Dashboard />
+            <Routes>
+              <Route path="/home" element={<Home />} />
+              <Route path="/" element={<Navigate to="/home" replace />} />
+              <Route path="*" element={<Navigate to="/home" replace />} />
+            </Routes>
           </main>
         </div>
       </div>

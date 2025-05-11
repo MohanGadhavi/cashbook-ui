@@ -16,6 +16,8 @@ function RecentTransactionsCard() {
     <CardWrapper
       customClass="mt-4 w-full"
       showActionBtn
+      actionBtnType="dialog"
+      dialogContent={<h1>HElloo</h1>}
       customActionBtn={
         <FontAwesomeIcon title="Add Transaction" icon={faPlus} />
       }
