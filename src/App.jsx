@@ -1,38 +1,57 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button } from './components/ui/button';
+import Dashboard from './Pages/HomePage';
+import Header from './components/Header';
+import { SidebarProvider } from './components/ui/sidebar';
+import SideBarMenu from './components/Header/SideBarMenu';
+import { useDispatch, useSelector } from 'react-redux';
 import {
-  faArrowUpFromBracket,
-  faBars,
-  faBitcoinSign,
-  faDollarSign,
-  faEllipsis,
-  faReceipt,
-} from '@fortawesome/free-solid-svg-icons';
-import DashboardCard from './components/DashboardCard';
-import Dashboard from './Pages/Dashboard';
+  updateDeviceType,
+  updateMainDivType,
+} from './store/slices/deviceSlice';
+import { useEffect } from 'react';
+import useTrackWidth from './utils/customHooks/useElementWidth';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const handleResize = () => {
+      dispatch(updateDeviceType(window.innerWidth));
+    };
+
+    handleResize(); // initial call
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, [dispatch]);
+
+  const mainRef = useTrackWidth((width) => {
+    dispatch(updateMainDivType(width));
+  });
+
+  const device = useSelector((state) => state.device.deviceType);
+  const mainDiv = useSelector((state) => state.device.mainDivType);
+  console.log('Device :::::::::::', device);
+  console.log('Main :::::::::::', mainDiv);
+
   return (
-    <div className="h-screen w-screen font-roboto bg-gray-800 text-white">
-      <header className="h-14 px-4 text-2xl  py-2 flex justify-between items-center bg-gray-900 text-white ">
-        <h1 className="">
-          Cash
-          <span className="ml-1.5 font-semibold">
-            <FontAwesomeIcon
-              icon={faBitcoinSign}
-              className="rotate-12 text-green-400"
-            />
-            ook
-          </span>
-        </h1>
-        <button type="button" className="px-2">
-          <FontAwesomeIcon icon={faBars} className="text-xl" />
-        </button>
-      </header>
-      <main className="px-4 py-2">
-        <Dashboard />
-      </main>
-    </div>
+    <SidebarProvider
+      style={{
+        '--sidebar-width': '20rem',
+        '--sidebar-width-mobile': '26rem',
+      }}
+      defaultOpen={false}
+    >
+      <div className="min-h-screen w-screen flex font-roboto bg-gray-800 text-white">
+        <SideBarMenu />
+        <div ref={mainRef} className="flex-1">
+          <Header />
+
+          <main className="p-4 pt-2 ">
+            <Dashboard />
+          </main>
+        </div>
+      </div>
+    </SidebarProvider>
   );
 }
 

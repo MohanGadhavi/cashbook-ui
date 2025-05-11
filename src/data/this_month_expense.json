@@ -1,0 +1,16 @@
+{
+  "from_date": "01-04-2025",
+  "To_date": "18-04-2025",
+  "month": "April",
+  "total_expense": 44000,
+  "expense_data": [
+    [
+      { "name": "Food", "value": 2000 },
+      { "name": "Transport", "value": 3000 },
+      { "name": "Entertainment", "value": 1000 },
+      { "name": "Rent", "value": 20000 },
+      { "name": "Utilities", "value": 5000 },
+      { "name": "Other", "value": 10000 }
+    ]
+  ]
+}

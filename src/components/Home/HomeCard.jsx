@@ -1,15 +1,11 @@
 import { faEllipsis } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
+import CardWrapper from '../core/CardWrapper.jsx/index.jsx';
 
 function DashboardCard({ card }) {
   return (
-    <div
-      className={`relative h-44 p-3 bg-white/5 border rounded-xl border-gray-500 `}
-    >
-      <button className="px-2 py-0 absolute top-2 right-1 rounded-full hover:bg-green-500/50">
-        <FontAwesomeIcon icon={faEllipsis} />
-      </button>
+    <CardWrapper showActionBtn>
       <div className="w-16 h-16 text-lg rounded-full bg-white/5 overflow-hidden flex justify-center items-center">
         {card.icon}
       </div>
@@ -23,7 +19,7 @@ function DashboardCard({ card }) {
       <p className="text-xs font-light mt-2 text-gray-400">
         {card.description}
       </p>
-    </div>
+    </CardWrapper>
   );
 }
 

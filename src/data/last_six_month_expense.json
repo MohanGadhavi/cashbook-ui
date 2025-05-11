@@ -1,0 +1,28 @@
+{
+  "data": [
+    {
+      "month": "January",
+      "expense": 520
+    },
+    {
+      "month": "February",
+      "expense": 320
+    },
+    {
+      "month": "March",
+      "expense": 750
+    },
+    {
+      "month": "April",
+      "expense": 420
+    },
+    {
+      "month": "May",
+      "expense": 1200
+    },
+    {
+      "month": "June",
+      "expense": 570
+    }
+  ]
+}

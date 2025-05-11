@@ -1,4 +1,4 @@
-import DashboardCard from '@/components/DashboardCard';
+import DashboardCard from '@/components/Home/HomeCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faArrowUpFromBracket,
@@ -6,6 +6,7 @@ import {
   faReceipt,
 } from '@fortawesome/free-solid-svg-icons';
 import React from 'react';
+import RecentTransactionsCard from '@/components/Home/RecentTransactionsCard';
 
 const cards = [
   {
@@ -57,6 +58,9 @@ function Dashboard() {
           <DashboardCard key={i} card={card} />
         ))}
       </div>
+
+      {/* recent transactions */}
+      <RecentTransactionsCard />
     </div>
   );
 }
