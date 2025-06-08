@@ -14,7 +14,7 @@ import lastSixMonthData from '../../data/last_six_month_expense.json';
 function RecentTransactionsCard() {
   return (
     <CardWrapper
-      customClass="mt-4 w-full"
+      customClass="mt-8 w-full"
       showActionBtn
       actionBtnType="dialog"
       dialogContent={<h1>HElloo</h1>}
@@ -26,7 +26,7 @@ function RecentTransactionsCard() {
       <div className="flex justify-between items-center">
         <p className="ml-1">Recent Transaction</p>
       </div>
-      <div className="mt-3 max-w-full ">
+      <div className="mt-4 max-w-full ">
         <CustomCarousel
           items={[
             <div
