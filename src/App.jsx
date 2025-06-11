@@ -53,7 +53,7 @@ function App() {
         <div ref={mainRef} className="flex-1">
           <Header />
 
-          <main className="pt-2 w-screen md:w-auto ">
+          <main className="w-screen md:w-auto ">
             <Routes>
               <Route path="/home" element={<Home />} />
               <Route path="/transactions" element={<Transactions />} />
